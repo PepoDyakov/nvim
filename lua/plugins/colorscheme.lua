@@ -1,8 +1,8 @@
 return {
-  "projekt0n/github-nvim-theme",
+  "EdenEast/nightfox.nvim",
   lazy = false,
   priority = 1000,
   config = function()
-    vim.cmd("colorscheme github_dark")
+    vim.cmd("colorscheme carbonfox")
   end,
 }

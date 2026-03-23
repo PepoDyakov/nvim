@@ -1,6 +1,6 @@
 return {
   "neovim/nvim-lspconfig",
-  ft = "rust",
+  ft = { "rust", "typescript", "typescriptreact", "javascript", "javascriptreact" },
   config = function()
     vim.lsp.config("rust_analyzer", {
       settings = {
@@ -12,6 +12,9 @@ return {
       },
     })
     vim.lsp.enable("rust_analyzer")
+
+    vim.lsp.enable("ts_ls")
+    vim.lsp.enable("eslint")
 
     -- Keymaps — only activate when an LSP attaches to a buffer
     vim.api.nvim_create_autocmd("LspAttach", {

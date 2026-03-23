@@ -20,4 +20,16 @@
       },
       { "<leader>E", "<cmd>Neotree toggle<cr>", desc = "Toggle file explorer" },
     },
+    opts = {
+      window = {
+        width = 60,
+      },
+      filesystem = {
+        filtered_items = {
+          visible = true,
+          hide_dotfiles = false,
+          hide_gitignored = false,
+        },
+      },
+    },
 }
