@@ -3,19 +3,6 @@ return {
   dependencies = {
     { "nvim-lua/plenary.nvim", branch = "master" },
   },
-  mcp = {
-    enabled = true,
-    servers = {
-      filesystem = {
-        command = "npx",
-        args = {
-          "-y",
-          "@modelcontextprotocol/server-filesystem",
-          vim.fn.getcwd(),
-        },
-      },
-    },
-  },
   keys = {
     { "<leader>cc", "<cmd>CopilotChatToggle<cr>", desc = "Copilot Chat" },
     {
@@ -38,17 +25,35 @@ return {
   build = "make tiktoken",
   opts = {
     model = "claude-opus-4.6",
-    window = {
-      layout = "vertical",
-      width = 0.3,
-      position = "right",
-    },
+    auto_fold = true,
+     window = {
+      layout = 'float',
+      width = 80, -- Fixed width in columns
+      height = 20, -- Fixed height in rows
+      border = 'rounded', -- 'single', 'double', 'rounded', 'solid'
+      title = '🤖 AI Assistant',
+      zindex = 100, -- Ensure window stays on top
+    },    
     headers = {
       user = '👤 You',
       assistant = '🤖 Copilot',
       tool = '🔧 Tool',
     },
     code_autocomplete = false,
-    show_help = false
+    show_help = false,
+    context = "buffer",
+    mcp = {
+      enabled = true,
+      servers = {
+        filesystem = {
+          command = "npx",
+          args = {
+            "-y",
+            "@modelcontextprotocol/server-filesystem",
+            vim.fn.getcwd(),
+          },
+        },
+      },
+    },
   },
 }
